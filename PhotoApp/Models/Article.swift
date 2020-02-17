@@ -8,17 +8,16 @@
 
 import Foundation
 
-enum Priority: Int {
+struct ArticlesList: Decodable {
     
-    case high
-    case medium
-    case low
+    let articles: [Article]
+}
+
+struct Article: Decodable{
+    
+    let title: String
+    let description: String
     
 }
 
-struct Task {
-    
-    let title: String
-    let priority: Priority
-    
-}
+

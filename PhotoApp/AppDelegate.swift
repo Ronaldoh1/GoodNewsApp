@@ -16,32 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let bag = DisposeBag()
 
-        struct Student {
-            var score: BehaviorRelay<Int>
-        }
+        UINavigationBar.appearance().tintColor = UIColor.orange
         
-        let john = Student(score: BehaviorRelay(value: 75))
-        let ron = Student(score: BehaviorRelay(value: 100))
-        let mary = Student(score: BehaviorRelay(value: 85))
-        
-        let student = PublishSubject<Student>()
-        
-        student
-            .asObservable()
-            .flatMapLatest { $0.score }
-            .subscribe(onNext: {
-                print($0)
-            }).disposed(by: bag)
-        
-        student.onNext(john)
-        student.onNext(ron)
-        student.onNext(mary)
-        
-        john.score.accept(45)
-        
-        // it's only observing the latest observable.... not the history of the observable.
         
         return true
     }

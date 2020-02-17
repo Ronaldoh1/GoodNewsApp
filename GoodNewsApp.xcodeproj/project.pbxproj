@@ -26,8 +26,10 @@
 		FA6556BF23F0C04B00C57E22 /* RxSwiftExt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6556B223F0C04A00C57E22 /* RxSwiftExt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA6556C023F0C04B00C57E22 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6556B323F0C04B00C57E22 /* SnapKit.framework */; };
 		FA6556C123F0C04B00C57E22 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6556B323F0C04B00C57E22 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FAAC5E7323FA2A6300AF5BFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5E7223FA2A6300AF5BFF /* ViewController.swift */; };
-		FAAC5E7623FA357C00AF5BFF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5E7523FA357C00AF5BFF /* Task.swift */; };
+		FA6EEC4F23FB37EC003EFBDF /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EEC4E23FB37EC003EFBDF /* ArticleCell.swift */; };
+		FA6EEC5223FB392E003EFBDF /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EEC5123FB392E003EFBDF /* URLRequest+Extension.swift */; };
+		FAAC5E7323FA2A6300AF5BFF /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5E7223FA2A6300AF5BFF /* NewsListViewController.swift */; };
+		FAAC5E7623FA357C00AF5BFF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5E7523FA357C00AF5BFF /* Article.swift */; };
 		FAF6667423F1610D00EB5663 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6667323F1610D00EB5663 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,8 +89,10 @@
 		FA6556B123F0C04A00C57E22 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		FA6556B223F0C04A00C57E22 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
 		FA6556B323F0C04B00C57E22 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		FAAC5E7223FA2A6300AF5BFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAAC5E7523FA357C00AF5BFF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FA6EEC4E23FB37EC003EFBDF /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+		FA6EEC5123FB392E003EFBDF /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		FAAC5E7223FA2A6300AF5BFF /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		FAAC5E7523FA357C00AF5BFF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FAF6667323F1610D00EB5663 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +152,7 @@
 		FA65567A23F0972B00C57E22 /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA6EEC5023FB391E003EFBDF /* Extension */,
 				FAAC5E7423FA356C00AF5BFF /* Models */,
 				FAAC5E7123FA26C300AF5BFF /* Controllers */,
 				FA65567B23F0972B00C57E22 /* AppDelegate.swift */,
@@ -191,10 +196,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA6EEC5023FB391E003EFBDF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA6EEC5123FB392E003EFBDF /* URLRequest+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FAAC5E7123FA26C300AF5BFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC5E7223FA2A6300AF5BFF /* ViewController.swift */,
+				FAAC5E7223FA2A6300AF5BFF /* NewsListViewController.swift */,
+				FA6EEC4E23FB37EC003EFBDF /* ArticleCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,7 +216,7 @@
 		FAAC5E7423FA356C00AF5BFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC5E7523FA357C00AF5BFF /* Task.swift */,
+				FAAC5E7523FA357C00AF5BFF /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,9 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAAC5E7323FA2A6300AF5BFF /* ViewController.swift in Sources */,
-				FAAC5E7623FA357C00AF5BFF /* Task.swift in Sources */,
+				FAAC5E7323FA2A6300AF5BFF /* NewsListViewController.swift in Sources */,
+				FA6EEC5223FB392E003EFBDF /* URLRequest+Extension.swift in Sources */,
+				FAAC5E7623FA357C00AF5BFF /* Article.swift in Sources */,
 				FA65567C23F0972B00C57E22 /* AppDelegate.swift in Sources */,
+				FA6EEC4F23FB37EC003EFBDF /* ArticleCell.swift in Sources */,
 				FAF6667423F1610D00EB5663 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
